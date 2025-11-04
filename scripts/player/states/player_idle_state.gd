@@ -1,11 +1,12 @@
 extends BaseState
 class_name PlayerIdleState
 
-@onready var player: Player = $"../.."
+var player: Player
 @onready var movement: MovementComponent = $"../../MovementComponent"
 
 func enter() -> void:
 	"""Вызывается при входе в состояние"""
+	player = object
 	SignalBus.player_state_changed.emit(GlobalConstants.PLAYER_STATE.IDLE)
 
 func physics_process(delta: float) -> void:

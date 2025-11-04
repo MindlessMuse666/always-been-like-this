@@ -2,11 +2,12 @@ extends BaseState
 class_name PlayerRunState
 
 var player: Player
-@onready var movement: MovementComponent = $"../../MovementComponent"
+var movement: MovementComponent
 
 func enter() -> void:
 	"""Вызывается при входе в состояние"""
 	player = object
+	movement = player.movement
 	SignalBus.player_state_changed.emit(GlobalConstants.PLAYER_STATE.RUN)
 
 func physics_process(delta: float) -> void:
