@@ -13,3 +13,18 @@ config_version=5
 config/name="Новый игровой проект"
 config/features=PackedStringArray("4.5", "Forward Plus")
 config/icon="res://icon.svg"
+
+[autoload]
+
+GlobalConstants="*res://scripts/globals/global_constants.gd"
+SignalBus="*res://scripts/globals/signal_bus.gd"
+
+[file_customization]
+
+folder_colors={
+"res://data/": "green",
+"res://data/player/": "red",
+"res://docs/": "blue",
+"res://scripts/": "yellow",
+"res://scripts/globals/": "green"
+}

@@ -1,0 +1,7 @@
+[gd_resource type="Resource" script_class="PlayerData" load_steps=2 format=3 uid="uid://cbpc75e43fnkv"]
+
+[ext_resource type="Script" uid="uid://crufl211b35i0" path="res://data/player/player_data.gd" id="1_pyaor"]
+
+[resource]
+script = ExtResource("1_pyaor")
+metadata/_custom_type_script = "uid://crufl211b35i0"
