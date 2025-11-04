@@ -1,8 +1,8 @@
-class_name MovementComponent
 extends Node
+class_name MovementComponent
 
-#region Переменные
 
+#region ПЕРЕМЕННЫЕ
 @export_category("Настройки движения")
 @export var walk_speed: float = 5.0
 @export var run_speed: float = 8.0
@@ -24,11 +24,9 @@ var camera: Camera3D
 var current_speed: float = .0
 var move_direction: Vector3 = Vector3.ZERO
 var is_running: bool = false
-
 #endregion
 
 #region Public методы
-
 func initialize(body: CharacterBody3D, pivot: Node3D, cam: Camera3D) -> void:
 	"""Инициализирует компонент движения с ссылками на необходимые узлы"""
 	character_body = body
@@ -57,10 +55,11 @@ func process_movement(delta: float, input_vector: Vector2, is_running_requested:
 
 	# Вычисляем направление движения относительно камеры
 	var basis = character_body.global_transform.basis
-	move_direction = (basis.z * input_vector.y + basis.x * input_vector.x).normalized()
+	move_direction = (basis.z * -input_vector.y + basis.x * input_vector.x).normalized()
 
 	# Определяем целевую скорость
 	var target_speed = run_speed if is_running else walk_speed
+
 	if input_vector != Vector2.ZERO:
 		# Ускорение
 		var acceleration_rate = acceleration * (1.0 if character_body.is_on_floor() else air_control)
@@ -70,9 +69,9 @@ func process_movement(delta: float, input_vector: Vector2, is_running_requested:
 		current_speed = move_toward(current_speed, 0, deceleration * delta)
 
 	# Применяем движение
-	if input_vector != Vector2.ZERO:
-		character_body.velocity.x = move_direction.x * current_speed
-		character_body.velocity.z = move_direction.z * current_speed
+	#if input_vector != Vector2.ZERO:
+	character_body.velocity.x = move_direction.x * current_speed
+	character_body.velocity.z = move_direction.z * current_speed
 
 func process_gravity(delta: float) -> void:
 	"""Обрабатывает гравитацию"""

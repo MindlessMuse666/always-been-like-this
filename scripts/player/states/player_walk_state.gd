@@ -1,13 +1,13 @@
 extends BaseState
 class_name PlayerWalkState
 
-var player: CharacterBody3D
+var player: Player
 var movement: MovementComponent
 
 func enter() -> void:
 	"""Вызывается при входе в состояние"""
 	player = object
-	movement = player.movement_component
+	movement = player.movement
 	SignalBus.player_state_changed.emit(GlobalConstants.PLAYER_STATE.WALK)
 
 func physics_process(delta: float) -> void:

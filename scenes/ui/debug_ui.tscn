@@ -1,0 +1,35 @@
+[gd_scene load_steps=2 format=3 uid="uid://dxy624st0rwvf"]
+
+[ext_resource type="Script" uid="uid://cpj15dgq64lfg" path="res://scripts/ui/debug/debug_ui.gd" id="1_h2fnn"]
+
+[node name="DebugUI" type="CanvasLayer"]
+follow_viewport_enabled = true
+script = ExtResource("1_h2fnn")
+
+[node name="MarginContainer" type="MarginContainer" parent="."]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer"]
+layout_mode = 2
+
+[node name="StateInfo" type="Label" parent="MarginContainer/VBoxContainer"]
+layout_mode = 2
+text = "State: "
+vertical_alignment = 1
+uppercase = true
+
+[node name="PositionInfo" type="Label" parent="MarginContainer/VBoxContainer"]
+layout_mode = 2
+text = "Position: "
+vertical_alignment = 1
+uppercase = true
+
+[node name="StatsInfo" type="Label" parent="MarginContainer/VBoxContainer"]
+layout_mode = 2
+text = "Stats: "
+vertical_alignment = 1
+uppercase = true

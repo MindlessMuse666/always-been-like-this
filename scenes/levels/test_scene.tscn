@@ -1,0 +1,56 @@
+[gd_scene load_steps=9 format=3 uid="uid://brb3o1blsffb8"]
+
+[ext_resource type="PackedScene" uid="uid://dcg3c7lkpdiqw" path="res://scenes/entities/player/player.tscn" id="1_xgkye"]
+[ext_resource type="PackedScene" uid="uid://dxy624st0rwvf" path="res://scenes/ui/debug_ui.tscn" id="2_bfhv8"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_pikkt"]
+albedo_color = Color(0.48216766, 0.58780056, 0.6434714, 1)
+
+[sub_resource type="PlaneMesh" id="PlaneMesh_xgkye"]
+material = SubResource("StandardMaterial3D_pikkt")
+size = Vector2(50, 50)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_bfhv8"]
+size = Vector3(50, 2, 50)
+
+[sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_t6frd"]
+sky_top_color = Color(0.29454082, 0.45946974, 0.64596254, 1)
+sky_horizon_color = Color(0.5867294, 0.682751, 0.7790179, 1)
+ground_bottom_color = Color(0.101353936, 0.19621983, 0.1691314, 1)
+ground_horizon_color = Color(0.52497095, 0.7208109, 0.64146376, 1)
+
+[sub_resource type="Sky" id="Sky_8eb0c"]
+sky_material = SubResource("ProceduralSkyMaterial_t6frd")
+
+[sub_resource type="Environment" id="Environment_7p3le"]
+background_mode = 2
+sky = SubResource("Sky_8eb0c")
+tonemap_mode = 2
+glow_enabled = true
+fog_enabled = true
+fog_light_energy = 1.15
+fog_sky_affect = 0.05
+
+[node name="TestScene" type="Node"]
+
+[node name="DebugUI" parent="." instance=ExtResource("2_bfhv8")]
+
+[node name="Ground" type="StaticBody3D" parent="."]
+
+[node name="Mesh" type="MeshInstance3D" parent="Ground"]
+mesh = SubResource("PlaneMesh_xgkye")
+
+[node name="CollisionGround" type="CollisionShape3D" parent="Ground"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -1, 0)
+shape = SubResource("BoxShape3D_bfhv8")
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="."]
+environment = SubResource("Environment_7p3le")
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
+transform = Transform3D(-0.8660254, -0.43301278, 0.25, 0, 0.49999997, 0.86602545, -0.50000006, 0.75, -0.43301266, 0, 7.999341, 0)
+shadow_enabled = true
+
+[node name="Entities" type="Node" parent="."]
+
+[node name="Player" parent="Entities" instance=ExtResource("1_xgkye")]

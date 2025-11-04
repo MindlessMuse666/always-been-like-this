@@ -1,13 +1,11 @@
 extends BaseState
 class_name PlayerIdleState
 
-var player: CharacterBody3D
-var movement: MovementComponent
+@onready var player: Player = $"../.."
+@onready var movement: MovementComponent = $"../../MovementComponent"
 
 func enter() -> void:
 	"""Вызывается при входе в состояние"""
-	player = object
-	movement = player.movement_component
 	SignalBus.player_state_changed.emit(GlobalConstants.PLAYER_STATE.IDLE)
 
 func physics_process(delta: float) -> void:
@@ -37,7 +35,6 @@ func input(event: InputEvent) -> void:
 	"""Обрабатывает ввод"""
 	if event.is_action_pressed("jump"):
 		movement.jump()
-
 	elif event is InputEventMouseMotion:
 		movement.process_mouse_input(event)
 
