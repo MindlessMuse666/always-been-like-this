@@ -1,0 +1,53 @@
+[gd_scene load_steps=11 format=3 uid="uid://dcg3c7lkpdiqw"]
+
+[ext_resource type="Script" uid="uid://1c0id1ymn8h2" path="res://scripts/player/player.gd" id="1_bj7e2"]
+[ext_resource type="Script" uid="uid://dhaypc6qj2v7g" path="res://scripts/player/states/player_idle_state.gd" id="2_1murt"]
+[ext_resource type="Script" uid="uid://qqp5dfqav2l3" path="res://scripts/globals/state_machine/state_machine.gd" id="2_5sj0x"]
+[ext_resource type="Script" uid="uid://cy0xghb2qjbil" path="res://scripts/player/states/player_walk_state.gd" id="3_5sj0x"]
+[ext_resource type="Script" uid="uid://brr4ot5fyl6ys" path="res://scripts/player/states/player_run_state.gd" id="4_ovg4i"]
+[ext_resource type="Script" uid="uid://ceag8m70xwwq" path="res://scripts/player/states/player_jump_state.gd" id="5_7wli1"]
+[ext_resource type="Script" uid="uid://cdasiipvipn3h" path="res://scripts/player/states/player_fall_state.gd" id="6_j0oqr"]
+[ext_resource type="Script" uid="uid://bsviadrgm01yd" path="res://scripts/player/components/movement_component.gd" id="7_xy2vv"]
+[ext_resource type="Script" uid="uid://bpdtoujjae7qv" path="res://scripts/player/components/interaction_component.gd" id="8_1murt"]
+
+[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_yel1f"]
+
+[node name="Player" type="CharacterBody3D"]
+script = ExtResource("1_bj7e2")
+
+[node name="CollisionBody" type="CollisionShape3D" parent="."]
+shape = SubResource("CapsuleShape3D_yel1f")
+
+[node name="Visuals" type="Node3D" parent="."]
+
+[node name="Model" type="Node3D" parent="Visuals"]
+
+[node name="CameraPivot" type="Node3D" parent="Visuals"]
+
+[node name="Camera" type="Camera3D" parent="Visuals/CameraPivot"]
+
+[node name="InteractionRayCast" type="RayCast3D" parent="."]
+
+[node name="StateMachine" type="Node" parent="."]
+script = ExtResource("2_5sj0x")
+
+[node name="IdleState" type="Node" parent="StateMachine"]
+script = ExtResource("2_1murt")
+
+[node name="WalkState" type="Node" parent="StateMachine"]
+script = ExtResource("3_5sj0x")
+
+[node name="RunState" type="Node" parent="StateMachine"]
+script = ExtResource("4_ovg4i")
+
+[node name="JumpState" type="Node" parent="StateMachine"]
+script = ExtResource("5_7wli1")
+
+[node name="FallState" type="Node" parent="StateMachine"]
+script = ExtResource("6_j0oqr")
+
+[node name="MovementComponent" type="Node" parent="."]
+script = ExtResource("7_xy2vv")
+
+[node name="InteractionComponent" type="Node" parent="."]
+script = ExtResource("8_1murt")

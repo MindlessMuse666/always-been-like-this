@@ -25,6 +25,12 @@ folder_colors={
 "res://data/": "green",
 "res://data/player/": "red",
 "res://docs/": "blue",
+"res://scenes/": "gray",
+"res://scenes/entities/": "blue",
+"res://scenes/entities/player/": "red",
 "res://scripts/": "yellow",
-"res://scripts/globals/": "green"
+"res://scripts/globals/": "green",
+"res://scripts/player/": "red",
+"res://scripts/player/components/": "purple",
+"res://scripts/player/states/": "green"
 }

@@ -3,7 +3,7 @@ extends Node
 
 #region Переменные
 
-var state_machine: Node = null  # Ссылка на state machine будет устанавливаться автоматически
+var state_machine: StateMachine = null  # Ссылка на state machine будет устанавливаться автоматически
 var object: Object = null  # Объект, которым управляет state machine
 
 #endregion
