@@ -10,6 +10,7 @@
 # Private docs
 roadmap.md
 prompts/
+gdd.md
 
 # Linter
 .markdownlint.json

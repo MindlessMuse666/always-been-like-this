@@ -15,14 +15,13 @@ _lo-fi, VHS, analog decay, бытовой ужас, запоздалая нос�
 
 **Вдохновение:**
 
-- _No I’m Not a Human_
-- _Parasite_
-- _Silent Hill 2 (PS2 cutscenes)_
-- _The Mandela Catalogue_
-- _Paratopic_
-- _Lost Tapes / Local58_
+- _No I’m Not a Human_ (Game)
+- _Parasite_ (Anime)
+- _Mirai Nikki_ (Anime)
+- _Vita Carnis_ (Analog Horror)
+- _The SMILE Tapes_ (Analog Horror)
+- _Local 58_ (Analog Horror)
 - VHS-документалки 80–90-х
-- _Twin Peaks_ (вялое, но тревожное "нормальное" настроение)
 
 ---
 

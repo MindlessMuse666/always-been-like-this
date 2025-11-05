@@ -10,7 +10,7 @@ config_version=5
 
 [application]
 
-config/name="Новый игровой проект"
+config/name="always-been-like-this"
 run/main_scene="uid://brb3o1blsffb8"
 config/features=PackedStringArray("4.5", "Forward Plus")
 config/icon="res://icon.svg"
